@@ -34,7 +34,7 @@ var fileFilterup = function (req, file, cb) {
   }
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, __dirname+'//files//')
+    cb(null, __dirname+'//files')
   },
   filename: function (req, file, cb) {
   	console.log()
