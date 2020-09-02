@@ -34,7 +34,7 @@ var fileFilterup = function (req, file, cb) {
   }
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, __dirname+'\\files')
+    cb(null, __dirname+'//files')
   },
   filename: function (req, file, cb) {
   	console.log()
@@ -239,7 +239,7 @@ app.post("/delete/:id",function(req,res){
 	db.run("delete from flaws where num = ?",req.params.id,function(){
 		db.all("select name from files where num = ?",req.params.id,function(err,row){
 			for (var i = 0; i < row.length; i++) {
-				fs.unlinkSync( __dirname+'\\files\\'+row[i].name)
+				fs.unlinkSync( __dirname+'//files//'+row[i].name)
 			}
 			db.run("delete from files where num = ?",req.params.id,function(){
 				db.run("delete from arch where num = ?",req.params.id,function(){
