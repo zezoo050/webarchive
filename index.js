@@ -197,7 +197,7 @@ app.get("/arch/:id",function(req,res){
 app.get("/files/:id", function(req,res){
 	if (req.session.userid == "1"){
 	db.get("select name from files where iden =?",req.params.id,function(err,row){
-	res.download(__dirname+'\\files\\'+row.name)		
+	res.download(__dirname+'//files//'+row.name)		
 	})
 
 }
