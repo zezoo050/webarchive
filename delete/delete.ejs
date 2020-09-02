@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+		<% var arch= arch %>
+<head>
+	<title>حذف مخطط</title>
+</head>
+<body>
+
+<h1>حذف المخطط رقم : <%= arch.archnum %></h1>
+<h3>رقم القطعة : <%= arch.piecenum %></h3>
+<h3>اسم صاحب القطعة : <%= arch.ownername %></h3>
+<h3>رقم هوية صاحب القطعة :<%= arch.ownerid %></h3>
+<% if (arch.location){ %>
+<h3>الموقع : <%= arch.location %></h3>
+<%}%>
+<% if (arch.flaws.length>0){ %>
+<h3>المخالفات : </h3>
+<ul>
+	<% for (i = 0 ; i< arch.flaws.length ; i++){ %>
+	<li><%= arch.flaws[i]%></li>
+	<%}%>
+	<%}%>
+</ul>
+<% if (arch.files.length>0){ %>
+<table style="border : black 1px solid ; border-collapse:collapse">
+	<tr>
+		<th style="border : black 1px solid ; border-collapse:collapse">اسم الملف</th>
+	</tr>
+	<% for (i = 0 ; i< arch.files.length ; i++){ %>
+	<tr>
+	<td  style="border : black 1px solid ; border-collapse:collapse"><%=arch.files[i].orname%></td>
+	<% var path = "/files/" + arch.files[i].iden %>
+	<td  style="border : black 1px solid ; border-collapse:collapse"><a href="<%= path %>">تنزيل</a></td>
+	</tr>
+	<%}%>
+</table>	
+<%}%>
+<br>
+<br>
+<% var p = "/delete/" + arch.num %>
+<form method="post" action="<%= p %>" enctype="multipart/form-data" id="form1">
+	<input type="submit" name="" id="del">
+</form>
+<br>
+<br>
+<br>
+<a href="/new">جديد</a>
+<br>
+<a href="/search">بحث</a>
+<script type="text/javascript" src="jquery-3.5.1.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

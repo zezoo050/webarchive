@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+	<title></title>
+</head>
+<body>
+<h1>بحث عن مخطط</h1>
+<form action="/search" method="post" enctype="multipart/form-data" id="form1">
+	<label for="search">بحث</label>
+	<input type="text" name="search" id="search">
+	<br>
+	<label for="select">بحث باستخدام</label>
+	<select name="select">
+		<option value="1">
+			رقم المخطط
+		</option>
+		<option value="2">
+			رقم القطعة
+		</option>
+		<option value="3">
+			اسم صاحب القطعة
+		</option>
+		<option value="4">
+			رقم هوية صاحب القطعة
+		</option>
+	</select>
+	<input type="submit" name="" placeholder="بحق">
+	<script type="text/javascript" src="search/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="search/script.js"></script>
+</form>
+</body>
+</html>

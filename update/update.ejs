@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+		<% var arch= arch %>
+<head>
+	<title>حذف مخطط</title>
+</head>
+<body>
+	<h1>تعديل مخطط</h1>
+	<% var p= "/update/" + arch.num %>
+<form method="post" action="<%= p %>" enctype="multipart/form-data" id="form1">
+	<label for="archnum" >رقم المخطط</label>
+	<input type="text" name="archnum" id="archnum" value="<%= arch.archnum%>" readonly>
+	<br>
+	<label for="piecenum" >رقم القطعة</label>
+	<input type="text" name="piecenum" id="piecenum" value="<%= arch.piecenum%>" readonly>
+	<br>
+	<label for="ownername" >اسم صاحب القطعة</label>
+	<input type="text" name="ownername" id="ownername" value="<%= arch.ownername%>">
+	<br>
+	<label for="ownerid" >رقم هوية صاحب القطعة</label>
+	<input type="text" name="ownerid" id="ownerid" value="<%= arch.ownerid%>">
+	<br>
+	<label for="location">الموقع</label>
+	<input type="text" name="location" value="<%= arch.location%>">
+	<br>
+	<% if (arch.flaws.length>0){ %>
+	<p>المخالفات الحالية : </p>
+	<ul>
+	<% for (i=0;i<arch.flaws.length;i++){ %>
+		<li><span class='valcurr'><%= arch.flaws[i] %></span><span class ='delcurr'>X</span></li>
+	<%}%>
+	</ul>
+	<%}%>
+	<br>
+	<label for="addflaw">اضافة مخالفات</label>
+	<input type="text" name="" id="addflaw">
+	<button type="button" id="addflawbutt">اضف</button>
+	<ul id="flaws">
+	</ul>
+	<br>
+	<% if (arch.files.length>0){ %>
+	<p>ملفات</p>
+	<table style="border : black 1px solid ; border-collapse:collapse">
+		<tr style="border : black 1px solid ; border-collapse:collapse">
+			<th style="border : black 1px solid ; border-collapse:collapse">اسم الملف</th>
+		</tr>
+	<% for (i=0;i<arch.files.length;i++){ %>
+		<tr style="border : black 1px solid ; border-collapse:collapse">
+			<td style="border : black 1px solid ; border-collapse:collapse"><%=arch.files[i].orname%></td>
+			<td hidden class="iden"><%=arch.files[i].iden%></td>
+			<td style="border : black 1px solid ; border-collapse:collapse"><button type="button" class="filedelbutt">حذف</button></td>
+		</tr>
+	<%}%>
+	</table>
+	<%}%>
+	<br>
+	<label for="file">اضافة ملفات جديدة</label>
+	<input type="file" name="file" multiple id="fileupload">
+	<br>
+	<br>
+	<button type="submit" name="" id="del">حفظ التعديلات</button>
+	<div id="flawslist"></div>
+	<div id="delflaws"></div>
+	<div id="delfiles"></div>
+</form>
+<br>
+<br>
+<br>
+<a href="/new">جديد</a>
+<br>
+<a href="/search">بحث</a>
+<br>
+<br>
+<script type="text/javascript" src="jquery-3.5.1.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

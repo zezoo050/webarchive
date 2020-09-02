@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+	<title>مخطط جديد</title>
+</head>
+<body>
+<h1>مخطط جديد</h1>
+<form action="/new" method="post" enctype="multipart/form-data" id="form1">
+	<label for="archnum" >رقم المخطط</label>
+	<input type="text" name="archnum" id="archnum">
+	<br>
+	<label for="piecenum" >رقم القطعة</label>
+	<input type="text" name="piecenum" id="piecenum">
+	<br>
+	<label for="ownername" >اسم صاحب القطعة</label>
+	<input type="text" name="ownername" id="ownername">
+	<br>
+	<label for="ownerid" >رقم هوية صاحب القطعة</label>
+	<input type="text" name="ownerid" id="ownerid">
+	<br>
+	<label for="location">الموقع</label>
+	<input type="text" name="location">
+	<br>
+	<label for="addflaw">المخالفات</label>
+	<input type="text" name="" id="addflaw">
+	<button type="button" id="addflawbutt">اضف مخافلة</button>
+	<ul id="flaws">
+	</ul>
+	<input type="file" name="file" multiple id="fileupload">
+	<br>
+	<input type="submit" name="">
+	<div id ="flawslist"></div>
+</form>
+<br>
+<a href="/search">بحث</a>
+<br>
+<script type="text/javascript" src="newarch/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="newarch/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+	<title>بحث</title>
+</head>
+<body>
+<h1>بحث عن مخطط</h1>
+<br>
+<a href="/new">جديد</a>
+<br>
+<br>
+<br>
+<form action="/search" method="post" enctype="multipart/form-data" id="form1">
+	<label for="search">بحث</label>
+	<input type="text" name="search" id="search">
+	<br>
+	<% if (error){ %>
+		<h6 style="color: red">لم يتم العثور على اي مخطط , الرجاء التاكد من المعلومات</h6>
+	<% } %>
+	<label for="select">بحث باستخدام</label>
+	<select name="select">
+		<option value="1">
+			رقم المخطط
+		</option>
+		<option value="2">
+			رقم القطعة
+		</option>
+		<option value="3">
+			اسم صاحب القطعة
+		</option>
+		<option value="4">
+			رقم هوية صاحب القطعة
+		</option>
+	</select>
+	<br>
+	<input type="submit" name="" placeholder="بحق">
+</form>
+	<% var a= arch %>
+	<% for (i = 0; i< a.length ; i++ ){%>
+	<div style="border : 2px black solid">
+	<p>رقم المخطط :<%= a[i].archnum %></p>
+	<p>رقم القطعة :<%= a[i].piecenum %></p>
+	<p>اسم صاحب القطعة :<%= a[i].ownername %></p>
+	<p>عدد الملفات: <%=a[i].filesnum%></p>
+	<% var path = "/arch/" + a[i].num %>
+	<a href= "<%= path %>">استعراض</a>
+	<br>
+	<% var path = "/delete/" + a[i].num %>
+	<a href= "<%= path %>">حذف المخطط</a>
+	<br>
+	<br>
+	<% var path = "/update/" + a[i].num %>
+	<a href= "<%= path %>">تعديل المخطط</a>
+	</div>
+	<br>
+	<br>
+	<% }%>
+	<script type="text/javascript" src="../search/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="../search/script.js"></script>
+</body>
+</html>
