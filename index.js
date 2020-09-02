@@ -340,6 +340,7 @@ if (req.session.userid == "1"){
 app.get("*",function (req,res) {
 	res.redirect("/login")
 });
-app.listen(3000,function(){
+const PORT = process.env.PORT;
+app.listen(PORT,function(){
 	console.log("server is running away")
 });
