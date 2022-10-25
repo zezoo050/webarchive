@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname+"/"));
 app.use(sessions({
 	cookieName : "session",
-	secret :"0504141120",
+	secret :"",
 	duration : 30*60*1000,
 	activeDuration : 5*60*1000,
 	httpOnly : true,
@@ -340,7 +340,7 @@ if (req.session.userid == "1"){
 app.get("*",function (req,res) {
 	res.redirect("/login")
 });
-const PORT = process.env.PORT;
+const PORT = 8000;
 app.listen(PORT,function(){
 	console.log("server is running away")
 });
